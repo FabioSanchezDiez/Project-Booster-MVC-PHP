@@ -1,0 +1,42 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.form{
+
+    margin-top: 5rem;
+
+    .field{
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        label{
+            flex: 0 0 10rem;
+        }
+    
+        input{
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            background-color: lighten($color: v.$grey, $amount: 40);
+        }
+    }
+
+    .field2{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 2rem;
+
+        p{
+            font-size: 1.6rem;
+            color: black;
+            margin-right: 4rem;
+            cursor: default;
+        }
+       
+    }
+
+    
+}

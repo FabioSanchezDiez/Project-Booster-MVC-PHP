@@ -1,0 +1,32 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.dashboard{
+    background-color: v.$lightgrey2;
+    height: 100%;
+
+    @include m.tablet {
+        display: flex;
+        height: 100vh;
+    }
+
+    .main-dashboard{
+        flex: 1;
+        overflow: auto; //For fix the overflow of sidebar
+    }
+
+    .content-dashboard{
+        padding: 2rem;
+        .name-page{
+            font-size: 2.8rem;
+            text-align: center;
+        }
+    }
+
+    .form{
+        input[type="submit"]{
+            @include m.boton(darken(v.$forestgreen, 10%), v.$white);
+            padding: 1.4rem;
+        }
+    }
+}

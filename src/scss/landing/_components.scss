@@ -1,0 +1,274 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+//Only this styles file uses styles already developed by other developers, thanks.
+.article-wrapper {
+    transition: 0.15s all ease-in-out;
+    border-radius: 10px;
+    padding: 5px;
+    border: 4px solid #2eb39885;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 4px 4px 0 #238673, 8px 8px 0 #155246;
+  }
+  
+  .article-wrapper:hover {
+    box-shadow: 10px 10px 0 #238673, 20px 20px 0 #155246;
+    border-color: #2eb398;
+    background-color: darken($color: v.$white, $amount: 5%);
+    transform: translate(-20px, -20px);
+  }
+  
+  .article-wrapper:active {
+    box-shadow: none;
+    transform: translate(0, 0);
+  }
+  
+  .types {
+    gap: 10px;
+    display: flex;
+    place-content: flex-start;
+  }
+  
+  .rounded-lg {
+    border-radius: 10px;
+  }
+  
+  .article-wrapper:hover .project-hover {
+    transform: rotate(-30deg);
+  }
+  
+  .project-info {
+    padding-top: 20px;
+    padding: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .project-title {
+    font-size: 1.4em;
+    @include m.tablet {
+      font-size: 1.8em;
+    }
+    margin: 0;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: black;
+  }
+  
+  .flex-pr {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .project-type {
+    background: #5ed6be;
+    color: #369481;
+    font-weight: bold;
+    padding: 0.3em 0.7em;
+    border-radius: 15px;
+    font-size: 12px;
+    letter-spacing: -0.6px
+  }
+  
+  .project-hover {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 9px;
+    transition: all 0.3s ease;
+  }
+  
+  .container-project {
+    width: 100%;
+    height: 170px;
+    background: gray;
+  }
+
+  .cssbuttons-io-button {
+    background: v.$cyan;
+    color: v.$white;
+    padding: 0.5em;
+    padding-left: 1.2em;
+    font-weight: bold;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3.3em;
+  }
+  
+  .cssbuttons-io-button .icon {
+    background: v.$white;
+    margin-left: 1em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.7em;
+    right: 0.3em;
+    transition: all 0.3s;
+  }
+  
+  .cssbuttons-io-button:hover .icon {
+    width: calc(100% - 0.6em);
+  }
+  
+  .cssbuttons-io-button .icon svg {
+    width: 1.1em;
+    transition: transform 0.3s;
+    color: v.$black;
+  }
+  
+  .cssbuttons-io-button:hover .icon svg {
+    transform: translateX(0.1em);
+  }
+  
+  .cssbuttons-io-button:active .icon {
+    transform: scale(0.95);
+  }
+  
+
+  .sesion{
+    a {
+      align-items: center;
+      background-color: darken(v.$white, 5%);
+      color: black;
+      cursor: pointer;
+      display: flex;
+      font-weight: 700;
+      line-height: 1.5;
+      text-decoration: none;
+      text-transform: uppercase;
+      outline: 0;
+      border: 2.5px solid #20202085;
+      padding: 1rem;
+    }
+    
+    a:before {
+      background-color: black;
+      content: "";
+      display: inline-block;
+      height: 1px;
+      margin-right: 10px;
+      transition: all .42s cubic-bezier(.25,.8,.25,1);
+      width: 1rem;
+    }
+    
+    a:hover:before {
+      background-color: black;
+      width: 3rem;
+    }
+  }
+  
+
+  .container-new-project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  
+    .checkbox-tile-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+  
+      .input-container {
+        position: relative;
+        height: 50px;
+        width: 100px;
+        margin: 0.5rem;
+  
+        .checkbox-button {
+          opacity: 0;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          margin: 0;
+          cursor: pointer;
+        }
+  
+        .checkbox-tile {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          border: 2px solid darken($color: v.$forestgreen, $amount: 8%);
+          border-radius: 5px;
+          padding: 1rem;
+          transition: transform 300ms ease;
+  
+          .icon svg {
+            fill: darken($color: v.$forestgreen, $amount: 8%);
+            width: 2rem;
+            height: 2rem;
+          }
+  
+          .checkbox-tile-label {
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: darken($color: v.$forestgreen, $amount: 8%);
+
+            &:hover{
+              cursor: pointer;
+            }
+          }
+
+          .checkbox-tile {
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            border: 2px solid darken($color: v.$forestgreen, $amount: 8%);
+            border-radius: 5px;
+            padding: 1rem;
+            transition: transform 300ms ease;
+          
+          }
+        }
+  
+        .checkbox-button:checked + .checkbox-tile {
+          background-color: darken($color: v.$forestgreen, $amount: 8%);
+          border: 2px solid darken($color: v.$forestgreen, $amount: 8%);
+          color: white;
+          transform: scale(1.1, 1.1);
+  
+          .icon svg {
+            fill: white;
+            background-color: darken($color: v.$forestgreen, $amount: 8%);
+          }
+  
+          .checkbox-tile-label {
+            color: white;
+            background-color: darken($color: v.$forestgreen, $amount: 8%);
+          }
+        }
+      }
+    }
+  }
+
+
+  

@@ -1,0 +1,91 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.project-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 4rem;
+
+    @include m.grid(1, 2rem);
+
+    @include m.randomSize1 {
+        display: grid;
+        gap: 4rem;
+        grid-template-columns: (50% 50%);
+    }
+
+    li {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        width: 95%;
+
+        @include m.phone {
+            display: grid;
+            grid-template-columns: 95% 5%;
+            gap: 1.5rem;
+            width: 100%;
+            gap: 1rem;
+        }
+
+        .delete-project-a {
+            pointer-events: none;
+            .delete-project {
+                height: 25%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 2rem;
+
+                img {
+                    pointer-events: auto;
+                    filter: invert(100);
+                    width: 2.5rem;
+                }
+            }
+
+        }
+    }
+
+    .project {
+        background-color: darken(v.$forestgreen, 15%);
+        min-height: 12rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        border-radius: .5rem;
+        color: v.$white;
+        transition-property: background-color;
+        transition-duration: 300ms;
+        transition-property: transform;
+        transition-duration: 300ms;
+
+        &:hover {
+            background-color: darken(v.$forestgreen, 22%);
+            transform: scale(1.05, 1.05);
+        }
+    }
+}
+
+.empty-project{
+    display: grid;
+    place-content: center;
+    min-height: 13rem;
+    cursor: pointer;
+    border: 2px dashed #238673;
+    border-radius: 1rem;
+    background-color: #23867238;
+
+    transition-property: background-color;
+    transition-duration: 300ms;
+
+    img{
+        width: 4rem;
+    }
+
+    &:hover{
+        background-color: #23867257;
+    }
+    width: 100%;
+}

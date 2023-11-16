@@ -1,0 +1,110 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.container-new-task{
+    display: flex;
+    justify-content: center;
+
+    .add-task{
+        @include m.boton(darken(v.$forestgreen, 10%), v.$white);
+    }
+}
+
+.task-list{
+    list-style: none;
+    padding: 0;
+    margin-top: 3rem;
+
+    .no-tasks{
+        text-align: center;
+    }
+}
+
+.task{
+    background-color: v.$white;
+    padding: .5rem 2rem;
+    border-left: 6px solid v.$black;
+    border-radius: .5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition-property: background-color;
+    transition-duration: 200ms;
+    
+    &:hover{
+        background-color: darken($color: v.$white, $amount: 10%);
+    }
+
+    .text{
+        display: flex;
+        flex-direction: column;
+       
+
+        img{
+            width: 2rem;
+            cursor: pointer;
+        }
+        
+        p{
+            color: v.$black;
+            max-width: 15rem;
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+
+        @include m.phone {
+            flex-direction: row;
+            gap: 1rem;
+
+            p{
+                max-width: 120rem;
+            }
+        }
+    }
+
+    .options{
+        display: flex;
+        gap: 1rem;
+        button{
+            border: none;
+            font-size: 1.2rem;
+            padding: .7rem 1rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            border-radius: 1rem;
+            color: v.$white;
+            transition-property: background-color;
+            transition-duration: 300ms;
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+
+        .div-img{
+            display: grid;
+            place-content: center;
+            img{
+                width: 2.2rem;
+                height: 2.2rem;
+                cursor: pointer;
+            }
+        }
+
+        
+        .terminada{
+            background-color: darken(v.$green, 5%);
+        }
+        .pendiente{
+            background-color: darken(v.$orange, 5%);
+        }
+        .task-remove{
+            background-color: darken(v.$red, 5%);
+
+            &:hover{
+                background-color: darken(v.$red, 15%);
+            }
+        }
+    }
+}

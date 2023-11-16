@@ -1,0 +1,63 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.login{
+    margin-top: 5rem;
+
+    .projectbooster{
+        
+        background: linear-gradient(to right, v.$black 0%, lighten(v.$lightgrey, 25%) 100%);
+        color: transparent;
+        background-clip: text;
+        text-align: center;
+        font-weight: bold
+    }
+
+    input[type="submit"]{
+        @include m.boton(v.$black, v.$white);
+    }
+
+    .actions{
+        a{
+            color: v.$black;
+        }
+    }
+}
+
+.cont-img {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+
+    img{
+        width: 50rem;
+    }
+}
+
+.btn-1{
+    display: grid;
+    place-content: center;
+
+    a{
+        font-size: 2rem;
+        font-weight: bold;
+        color: v.$black;
+    }
+    
+}
+  
+.btn-inc{
+    
+    @include m.boton(v.$black, v.$white);
+    
+}
+
+.cont-btn{
+    width: 40%;
+}
+
+.p-message{
+    color: v.$black;
+}
+  
+

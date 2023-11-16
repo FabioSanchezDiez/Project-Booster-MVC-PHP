@@ -1,0 +1,62 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.window {
+    position: fixed;
+    background-color: rgb(0 0 0 / .8);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .form {
+        max-width: 60rem;
+        background-color: v.$white;
+        padding: 2rem;
+        margin: 0 auto;
+        transform: translateY(-50vh);
+        transition-property: all;
+        transition-duration: 600ms;
+        opacity: 0;
+        border-radius: 1rem;
+
+        legend{
+            font-size: 2rem;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            display: block; //for align text because legend label haven't a display valid for center him text with text-align center property.
+        }
+
+        input[type="text"]{
+            border: 1px solid v.$grey;
+            border-radius: .5rem;
+        }
+
+        .options{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .submit-new-task{
+            @include m.boton(darken(v.$forestgreen, 12%), v.$white);
+        }
+
+        .close-window{
+            @include m.boton(v.$red, v.$white);
+        }
+
+        &.animate {
+            //For aling the window in the middle
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 1;
+        }
+
+        &.close{
+            transform: translateY(-200%);
+            opacity: 0;
+        }
+    }
+}

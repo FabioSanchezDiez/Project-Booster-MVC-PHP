@@ -1,0 +1,149 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.calendar{
+    display: flex;
+    flex-direction: column;
+
+    .day{
+        display: flex;
+        flex-direction: column;
+        
+
+        @include m.desktop {
+            display: grid;
+            grid-template-columns: 15% 25% 25% 25%;
+        }
+
+
+        place-content: center;
+        gap: 2rem;
+        align-items: center;
+        border-bottom: 1px solid darken(v.$lightgrey2, 35%);
+        padding: 2rem;
+
+        &:last-of-type{
+            border-bottom: none;
+        }
+
+
+        .day-name{
+            background: linear-gradient(to right, v.$forestgreen 0%, darken(v.$forestgreen, 25%) 100%);
+            color: transparent;
+            background-clip: text;
+            font-size: 2.5rem;
+            text-align: center;
+            margin: 0;
+        }
+
+
+        .empty-addproject{
+            border: 2px dashed darken(v.$forestgreen, 25%);
+            border-radius: 1rem;
+            padding: 4rem;
+            width: 100%;
+          
+        }
+
+        .project-calendar{
+            background-color: v.$white;
+            border-left: 6px solid darken(v.$forestgreen, 25%);
+            padding: 2rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            transition-property: background-color;
+            transition-duration: 200ms;
+
+            div{
+                text-align: center;
+                p{
+                    color: v.$black;
+                    font-weight: bold;
+                }
+            }
+
+            .text-content{
+                border-bottom: 1px solid v.$black;
+
+                p{
+                    margin: 0;
+                    padding-bottom: .5rem;
+                    font-size: 2.2rem;
+                }
+            }
+
+            .hour-content{
+                margin-top: .5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                p{
+                    font-size: 1.8rem;
+                    margin: 0;
+                }
+
+                .actions-content{
+                    img{
+                        width: 1.8rem;
+                    }
+                }
+            }
+
+            &:hover{
+                background-color: darken($color: v.$white, $amount: 10%);
+            }
+
+            
+           
+        }
+    }
+}
+
+.create-calendar{
+    background-color: darken($color: v.$forestgreen, $amount: 10%);
+    color: v.$white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    padding: 1.2rem;
+    transition-property: background-color;
+    transition-duration: 300ms;
+
+    &:hover{
+        background-color: darken($color: v.$forestgreen, $amount: 15%);
+    }
+}
+
+.form-calendar{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    .btn-calendar{
+        padding: .2rem;
+        border-radius: 2rem;
+     
+        border: none;
+            background-color: lighten($color: v.$grey, $amount: 40);
+    }
+
+    .btn-calendar-number{
+        padding: .5rem;
+        border: none;
+            background-color: lighten($color: v.$grey, $amount: 40);
+    }
+
+    .field{
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    input[type="submit"]{
+        @include m.boton(darken(v.$forestgreen, 15%), v.$white)
+    }
+}
