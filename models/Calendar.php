@@ -7,6 +7,7 @@ class Calendar extends ActiveRecord{
     protected static $table = "calendar";
     protected static $dbColumns = ["userId", "projectId", "weekDay", "hours"];
 
+    public $id;
     public $userId;
     public $projectId;
     public $weekDay;
@@ -14,6 +15,7 @@ class Calendar extends ActiveRecord{
     
     public function __construct($args = [])
     {
+        $this->id = $args["id"] ?? null;
         $this->userId = $args["userId"] ?? '';
         $this->projectId = $args["projectId"] ?? '';
         $this->weekDay = $args["weekDay"] ?? '';
@@ -23,13 +25,13 @@ class Calendar extends ActiveRecord{
     public function validateCalendar($calendarFull){
 
         $validWeekDaysAndCount = [
-            "Lunes" => 0,
-            "Martes" => 0,
-            "Miercoles" => 0,
-            "Jueves" => 0,
-            "Viernes" => 0,
-            "Sabado" => 0,
-            "Domingo" => 0
+            1 => 0,
+            2 => 0,
+            3 => 0,
+            4 => 0,
+            5 => 0,
+            6 => 0,
+            7 => 0
         ];
         $days = array_keys($validWeekDaysAndCount);
 

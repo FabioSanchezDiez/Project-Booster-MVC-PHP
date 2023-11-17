@@ -124,13 +124,15 @@ class DashboardController{
 
         $projects = Project::belongsTo("userId", $id);
 
+        //Calendar::returnCalendarWithProjectInfo(9);
+
         $calendarFull = Calendar::belongsTo("userId", $id);
-     
+        
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
             $calendar = new Calendar($_POST);
-        
+            
             //Validate 
             $alerts = $calendar->validateCalendar($calendarFull);
 
