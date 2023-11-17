@@ -51,6 +51,10 @@ class Calendar extends ActiveRecord{
             self::$alerts["error"][] = "Error al elegir el día, intentelo de nuevo más tarde";
         }
 
+        if($this->hours <= 1 && $this->hours >= 24){
+            self::$alerts["error"][] = "Límite de horas excedido";
+        }
+
         if($validWeekDaysAndCount[$this->weekDay] >= 3){
             self::$alerts["error"][] = "No se pueden añadir más de 3 proyectos al mismo día";
         }

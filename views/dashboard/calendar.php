@@ -50,107 +50,32 @@
 <div class="container animated">
     <div class="calendar">
         <div class="day">
-
             <h3 class="day-name">Lunes</h3>
-            <?php
-            $emptyProject = 0;
-            foreach ($calendarFull as $value) {
-                if ($value->weekDay == 1) {
-                    $emptyProject += 1;
-                    ?>
-
-                    <div class="project-calendar">
-                        <div class="text-content">
-                            <?php
-                            $nameProject = "";
-                               foreach($projects as $project){
-                                if ($project->id == $value->projectId) {
-                                    $nameProject = $project->project;
-                                }
-                            }
-                            ?>
-                            <p><?php echo $nameProject;?></p>
-                        </div>
-                        <div class="hour-content">
-                            <p>
-                                <?php echo $value->hours ?> horas al día
-                            </p>
-                            <div class="actions-content">
-                                <a href="">
-                                    <img src="build/img/edit.svg" alt="Editar datos">
-                                </a>
-                                <a href="">
-                                    <img src="build/img/bin.png" alt="Eliminar del calendario" style="filter: invert(100%);">
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-                <?php }
-            }
-            ?>
-
-            <?php
-            for ($i = 0; $i < 3 - $emptyProject; $i++) { ?>
-                <div class="empty-addproject">
-                </div>
-                <?php
-            }
-            ?>
+            <?php showProjectsCalendar($calendarFull, $projects, 1); ?>
         </div>
         <div class="day">
             <h3 class="day-name">Martes</h3>
-            <div class="empty-addproject">
-            </div>
-            <div class="empty-addproject">
-            </div>
-            <div class="empty-addproject">
-            </div>
+            <?php showProjectsCalendar($calendarFull, $projects, 2); ?>
         </div>
         <div class="day">
             <h3 class="day-name">Miércoles</h3>
-            <div class="empty-addproject">
-            </div>
-            <div class="empty-addproject">
-            </div>
-            <div class="empty-addproject">
-            </div>
+            <?php showProjectsCalendar($calendarFull, $projects, 3); ?>
         </div>
         <div class="day">
             <h3 class="day-name">Jueves</h3>
-            <div class="empty-addproject">
-            </div>
-            <div class="empty-addproject">
-            </div>
-            <div class="empty-addproject">
-            </div>
+            <?php showProjectsCalendar($calendarFull, $projects, 4); ?>
         </div>
         <div class="day">
             <h3 class="day-name">Viernes</h3>
-            <div class="empty-addproject">
-            </div>
-            <div class="empty-addproject">
-            </div>
-            <div class="empty-addproject">
-            </div>
+            <?php showProjectsCalendar($calendarFull, $projects, 5); ?>
         </div>
         <div class="day">
             <h3 class="day-name">Sábado</h3>
-            <div class="empty-addproject">
-            </div>
-            <div class="empty-addproject">
-            </div>
-            <div class="empty-addproject">
-            </div>
+            <?php showProjectsCalendar($calendarFull, $projects, 6); ?>
         </div>
         <div class="day">
             <h3 class="day-name">Domingo</h3>
-            <div class="empty-addproject">
-            </div>
-            <div class="empty-addproject">
-            </div>
-            <div class="empty-addproject">
-            </div>
+            <?php showProjectsCalendar($calendarFull, $projects, 7); ?>
         </div>
     </div>
 </div>

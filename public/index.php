@@ -45,6 +45,7 @@ $router->get('/remove-project', [DashboardController::class, 'removeProject']);
 $router->get('/project', [DashboardController::class, 'project']);
 $router->get('/calendar', [DashboardController::class, 'calendar']);
 $router->post('/calendar', [DashboardController::class, 'calendar']);
+$router->get('/remove-calendar', [DashboardController::class, 'removeCalendar']);
 $router->get('/profile', [DashboardController::class, 'profile']);
 
 //API for tasks

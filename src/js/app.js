@@ -3,31 +3,37 @@ const closeMenuBtn = document.querySelector("#close-menu");
 const sidebar = document.querySelector(".sidebar");
 const bodyElement = document.querySelector("body");
 const contentDashboard = document.querySelector(".content-dashboard");
-const bins = document.querySelectorAll(".delete-project-a");
 
-if (bins) {
-    bins.forEach(bin => {
-        bin.addEventListener("click", function () {
-            event.preventDefault();
-            const projectId = bin.dataset.projectId;
-            const userId = bin.dataset.projectUserid;
-        
-            Swal.fire({
-                title: '¿Estás seguro de que quieres eliminar este proyecto?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Sí, estoy seguro',
-                cancelButtonText: 'No'
-            }).then((result) => {
-                /* Read more about isConfirmed, isDenied below */
-                if (result.isConfirmed) {
-                    window.location.href = `/remove-project?id=${projectId}&userId=${userId}`;
-                }
-            })
-        })
-    })
+//Generalize the delete action on projects and calendar entries
+const binsForProjects = document.querySelectorAll('.bin-for-projects');
+handleBinClick(binsForProjects, '/remove-project');
+const binsForCalendarEntries = document.querySelectorAll('.bin-for-calendar-entries');
+handleBinClick(binsForCalendarEntries, '/remove-calendar');
+
+function handleBinClick(bins, removalUrl) {
+    if (bins) {
+        bins.forEach(bin => {
+            bin.addEventListener("click", function (event) {
+                event.preventDefault();
+                const itemId = bin.dataset.itemId;
+                const userId = bin.dataset.itemUserid;
+
+                Swal.fire({
+                    title: '¿Estás seguro de que quieres eliminar este elemento?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, estoy seguro',
+                    cancelButtonText: 'No'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = `${removalUrl}?id=${itemId}&userId=${userId}`;
+                    }
+                });
+            });
+        });
+    }
 }
 
 if (mobileMenuBtn) {

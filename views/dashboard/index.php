@@ -42,7 +42,7 @@
                         </div>
                     </article>
                 </a>
-                <a href="" class="delete-project-a" <?php echo "data-project-id=$project->id" ?> <?php echo "data-project-userId=$project->userId" ?>>
+                <a href="" class="delete-project-a bin-for-projects" <?php echo "data-item-id=$project->id" ?> <?php echo "data-item-userid=$project->userId" ?>>
                     <div class="delete-project">
                         <img src="build/img/bin.png" alt="Imagen Papelera">
                     </div>

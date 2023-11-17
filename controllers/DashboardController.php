@@ -124,8 +124,6 @@ class DashboardController{
 
         $projects = Project::belongsTo("userId", $id);
 
-        //Calendar::returnCalendarWithProjectInfo(9);
-
         $calendarFull = Calendar::belongsTo("userId", $id);
         
 
@@ -160,6 +158,28 @@ class DashboardController{
             'calendarFull' => $calendarFull,
             'alerts' => $alerts
         ]);
+    }
+
+    public static function removeCalendar()
+    {
+
+        session_start();
+
+        isAuth();
+
+        $calendarId = $_GET["id"] ?? "";
+        $userId = $_GET["userId"] ?? "";
+
+        if(!$calendarId || !$userId) header("Location: /calendar");
+
+        $calendar = Calendar::where("id", $calendarId);
+       
+        if (!$calendar || $calendar->id !== $calendarId || $calendar->userId !== $userId || $calendar->userId !== $_SESSION["id"]) header("Location: /dashboard");
+
+        $result = $calendar->delete();
+
+        if($result) header("Location: /calendar");
+    
     }
 
     public static function profile(Router $router){
