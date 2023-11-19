@@ -47,6 +47,9 @@ $router->get('/calendar', [DashboardController::class, 'calendar']);
 $router->post('/calendar', [DashboardController::class, 'calendar']);
 $router->get('/remove-calendar', [DashboardController::class, 'removeCalendar']);
 $router->get('/profile', [DashboardController::class, 'profile']);
+$router->post('/profile', [DashboardController::class, 'profile']);
+$router->get('/change-password', [DashboardController::class, 'changePassword']);
+$router->post('/change-password', [DashboardController::class, 'changePassword']);
 
 //API for tasks
 $router->get('/api/tasks', [TaskController::class, 'index']);

@@ -11,6 +11,8 @@ class User extends ActiveRecord{
     public $email;
     public $password;
     public $password2;
+    public $actual_password;
+    public $new_password;
     public $token;
     public $confirmed;
 
@@ -21,6 +23,8 @@ class User extends ActiveRecord{
         $this->email = $args["email"] ?? '';
         $this->password = $args["password"] ?? '';
         $this->password2 = $args["password2"] ?? '';
+        $this->actual_password = $args["actual_password"] ?? '';
+        $this->new_password = $args["new_password"] ?? '';
         $this->token = $args["token"] ?? '';
         $this->confirmed = $args["confirmed"] ?? 0;
         
@@ -123,6 +127,55 @@ class User extends ActiveRecord{
         }
 
         return self::$alerts;
+    }
+
+    public function validateProfile(){
+        if(!$this->name){
+            self::$alerts["error"][] = "Tienes que indicar un nombre";
+        }
+
+        if(strlen($this->name) >= 30){
+            self::$alerts["error"][] = "El nombre de usuario no puede ser mayor a 30 caracteres";
+        }
+
+        if(!$this->email){
+            self::$alerts["error"][] = "El email es obligatorio";
+        }
+
+        if(strlen($this->email) >= 50){
+            self::$alerts["error"][] = "El email no puede ser mayor a 50 caracteres";
+        }
+
+        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
+            self::$alerts["error"][] = "Email no válido";
+        }
+
+        return self::$alerts;
+    }
+
+    public function newPassword(){
+        if(!$this->actual_password){
+            self::$alerts["error"][] = "La contaseña actual no puede ir vacía";
+        }
+
+        if(!$this->new_password){
+            self::$alerts["error"][] = "La contaseña nueva no puede ir vacía";
+        }
+
+        if(strlen($this->new_password) < 6){
+            self::$alerts["error"][] = "La contraseña debe contener al menos 6 caracteres";
+        }
+
+        if(strlen($this->new_password) >= 60){
+            self::$alerts["error"][] = "La contraseña no puede ser mayor a 60 caracteres";
+        }
+
+        return self::$alerts;
+    }
+
+    //Check password
+    public function checkPassword(){
+        return password_verify($this->actual_password, $this->password);
     }
 
     public function hashPassword(){

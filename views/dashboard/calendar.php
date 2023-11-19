@@ -38,7 +38,7 @@
 
             <div class="field">
                 <label for="hours">Indica cuantas horas le quieres dedicar al proyecto el día seleccionado:</label>
-                <input type="number" id="hours" name="hours" min="1" max="24" class="btn-calendar-number">
+                <input type="number" id="hours" name="hours" min="1" max="24" class="btn-calendar-number" required>
             </div>
 
             <input type="hidden" value="<?php echo $_SESSION["id"] ?>" name="userId">

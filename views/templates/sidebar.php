@@ -11,7 +11,7 @@
         <a class="<?php echo ($title === 'Proyectos') ? 'active' : '';?>" href="/dashboard">Mis Proyectos</a>
         <a class="<?php echo ($title === 'Nuevo Proyecto') ? 'active' : '';?>" href="/create-project">Nuevo Proyecto</a>
         <a class="<?php echo ($title === 'Calendario') ? 'active' : '';?>" href="/calendar">Calendario</a>
-        <a class="<?php echo ($title === 'Perfil') ? 'active' : '';?>" href="/profile">Configuración</a>
+        <a class="<?php echo ($title === 'Configuración' || $title === 'Cambiar contraseña') ? 'active' : '';?>" href="/profile">Configuración</a>
         <a href="/">Volver Atrás</a>
     </nav>
 

@@ -29,4 +29,11 @@
             padding: 1.4rem;
         }
     }
+
+    .link{
+        color: v.$forestgreen;
+        &:hover{
+            color: darken($color: v.$forestgreen, $amount: 20%);
+        }
+    }
 }
