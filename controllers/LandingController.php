@@ -11,7 +11,7 @@ class LandingController
         session_start();
 
         //Render to view
-        $router->render('landing/landing', [
+        $router->render('landing/index', [
             'title' => 'Inicio'
         ]);
     }

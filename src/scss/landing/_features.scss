@@ -8,7 +8,7 @@
   place-content: center;
   justify-content: center;
   gap: 2rem;
-  margin-top: 6rem;
+  margin-top: 8rem;
 
   .feature {
     padding: 2rem;
@@ -33,7 +33,7 @@
       color: #248a76;
     }
     p {
-      color: v.$black;
+      color: lighten($color: v.$black, $amount: 10%);
     }
   }
 
