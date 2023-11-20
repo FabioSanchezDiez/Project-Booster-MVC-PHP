@@ -1,0 +1,46 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+//Grid with all features of the software
+.grid-features {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  place-content: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 6rem;
+
+  .feature {
+    padding: 2rem;
+    margin: 0 auto;
+    background-color: #248a7625;
+    box-shadow: 10px 5px 25px 5px rgba(35, 43, 45, 0.164);
+
+    &:hover {
+      background-color: #248a7631;
+    }
+
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+
+    h2 {
+      font-size: 4rem;
+      text-align: center;
+      color: #248a76;
+    }
+    p {
+      color: v.$black;
+    }
+  }
+
+  @include m.phone {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include m.desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -35,7 +35,8 @@
 }
 
 .cont-img2 {
-    display: flex;
+    
+    display: none;
     justify-content: center; 
     align-items: center; 
     grid-area: col2;
@@ -43,6 +44,9 @@
     img{
         width: 100%;
         height: 100%;
+    }
+    @include m.desktop {
+        display: flex;
     }
 }
 

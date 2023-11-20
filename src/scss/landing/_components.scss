@@ -92,7 +92,8 @@
   }
 
   .cssbuttons-io-button {
-    background: v.$cyan;
+    background: darken($color: v.$forestgreen, $amount: 10%);
+    box-shadow: 5px 5px 15px 5px #232b2d;
     color: v.$white;
     padding: 0.5em;
     padding-left: 1.2em;
