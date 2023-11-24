@@ -1,0 +1,47 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 4rem;
+
+    .review {
+        background-color: #f8f1e5b7;
+        box-shadow: 10px 5px 25px 5px rgba(35, 43, 45, 0.164);
+        display: grid;
+        gap: 2rem;
+        padding: 2rem;
+        place-items: center;
+
+        img {
+            border-radius: 100%;
+            width: 12rem;
+        }
+
+        .name {
+            font-weight: 700;
+
+            p {
+                width: 11rem;
+                margin: 0;
+            }
+
+            span {
+                color: v.$orange;
+            }
+        }
+
+        &:hover{
+            background-color: darken($color: #f8f1e5b7, $amount: 3%);
+        }    
+
+        @include m.tablet {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+        }
+    }
+}

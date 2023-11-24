@@ -1,0 +1,33 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    background-color: v.$black;
+    padding: 4rem;
+    margin-top: 10rem;
+
+    img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 3.5rem;
+        transition: filter ease 400ms;
+        filter: grayscale(100%);
+        
+
+        &:hover{
+            filter: none;
+        }
+    }
+
+    p{
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: v.$white;
+        margin: 0;
+    }
+}

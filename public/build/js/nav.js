@@ -1,0 +1,1 @@
+function scrollNav(){document.querySelectorAll(".links a").forEach(e=>{e.addEventListener("click",(function(e){e.preventDefault();document.querySelector(e.target.attributes.href.value).scrollIntoView({behavior:"smooth"})}))})}document.addEventListener("DOMContentLoaded",(function(){scrollNav()}));

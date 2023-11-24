@@ -2,7 +2,7 @@
 <?php if (count($projects) === 0) { ?>
 
     <div class="container" style="text-align: center; margin-bottom: 2rem;">
-        <p>¡Bienvenido! Todavía no tienes ningún proyecto por tanto no aún no puedes usar el calendario.</p>
+        <p>¡Bienvenido! Todavía no tienes ningún proyecto por tanto aún no puedes usar el calendario.</p>
         <a href="/create-project" class="create-calendar">Crear Proyecto</a>
     </div>
 
