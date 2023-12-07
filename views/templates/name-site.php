@@ -1,4 +1,4 @@
-<div class="cont-img">
+<div class="login-img">
     <a href="/">
         <img src="/build/img/ProjectBoosterLog.png" alt="Project Booster Logo">
     </a>

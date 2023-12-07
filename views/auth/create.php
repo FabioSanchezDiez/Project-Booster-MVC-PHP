@@ -1,12 +1,6 @@
-<div class="container login">
+<div class="container login ">
 
-<div class="cont-img">
-    <a href="/">
-        <img src="/build/img/ProjectBoosterLog2.png" alt="Project Booster Logo">
-    </a>
-</div>
-
-<p class="tagline">Gestiona tus proyectos personales de manera eficiente</p>
+    <?php include_once __DIR__ . "/../templates/name-site.php" ?>
 
     <div class="container-sm">
         <p class="page-description projectbooster">Crea tu Cuenta</p>
@@ -14,13 +8,13 @@
         <?php include_once __DIR__ . "/../templates/alerts.php" ?>
 
         <form class="form" method="POST" action="/create">
-        <div class="field">
+            <div class="field">
                 <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" placeholder="Tu Nombre" name="name" value="<?php echo $user->name?>" required>
+                <input type="text" id="nombre" placeholder="Tu Nombre" name="name" value="<?php echo $user->name ?>" required>
             </div>
             <div class="field">
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Tu Email" name="email" value="<?php echo $user->email?>" required>
+                <input type="email" id="email" placeholder="Tu Email" name="email" value="<?php echo $user->email ?>" required>
             </div>
             <div class="field">
                 <label for="password">Contraseña</label>
