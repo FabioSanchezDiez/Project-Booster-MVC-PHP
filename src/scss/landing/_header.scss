@@ -142,13 +142,8 @@
 }
 
 .div-main {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-
-  img {
-    width: 4rem;
-  }
+  width: 100%;
+  display: flex;
 }
 
 .cont-img {

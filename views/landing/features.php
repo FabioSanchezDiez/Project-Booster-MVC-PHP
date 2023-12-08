@@ -7,10 +7,10 @@
         <p>Optimiza tu productividad y controla tus proyectos con nuestro gestor diseñado especialmente para eso. Organiza tareas, colabora sin esfuerzo y logra resultados excepcionales con nuestra plataforma intuitiva y poderosa.</p>
         <div class="div-main">
             <a href="/create" class="contact">¡Forma parte de nosotros!</a>
-            <a href="https://www.youtube.com/" target="_blank" class="video-contain">
+         <!-- <a href="https://www.youtube.com/" target="_blank" class="video-contain">
                 <img src="/build/img/play.png" alt="boton ir al video">
                 <span class="span">¿Cómo funciona el software?</span>
-            </a>
+            </a>-->  
         </div>
     </div>
 </main>
